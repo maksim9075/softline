@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Test.Models.InfoPerson>
+@{
+    //ViewData["Title"] = "Список сотрудников";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Компания "SoftMicro"</title>
+    @*<link rel="stylesheet" type="text/css" href="~/css/maindesign.css">*@
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, Times, serif; /* Семейство шрифтов */
+        }
+
+        h3 {
+            color: #212163; /* Цвет заголовка */
+            font-size: 24pt; /* Размер шрифта в пунктах */
+            font-weight: normal; /* Нормальное начертание текста */
+            text-align: right;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        th {
+            font-size: 13px;
+            font-weight: 700;
+            background: #b9c9fe;
+            border-top: 4px solid #aabcfe;
+            border-bottom: 1px solid #fff;
+            color: #039;
+            padding: 8px;
+        }
+
+        td {
+            background: #e8edff;
+            border-bottom: 1px solid #fff;
+            color: #669;
+            border-top: 1px solid transparent;
+            padding: 8px;
+        }
+
+        tr:hover td {
+            background: #ccddff;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>Сотрудники</h3>
+    <table>
+        <tr>
+            <th>ФИО</th>
+            <th>Должность</th>
+            <th>Дата рождения</th>
+            <th>Комментарий</th>
+            <th>Декрет</th>
+        </tr>
+        @foreach (var infoPerson in Model)
+        {
+    <tr>
+        <td>@infoPerson.FIO</td>
+        <td>@infoPerson.Position</td>
+        <td>@infoPerson.DateOfBirth.ToShortDateString()</td>
+        <td>@infoPerson.Comment</td>
+        <td>@infoPerson.Mat</td>
+     
+    </tr>
+        }
+    </table>
+</body>
+</html>
